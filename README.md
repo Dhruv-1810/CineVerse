@@ -194,6 +194,7 @@ CineVerse/
 │   └── movie-details.css
 │
 ├── js/
+├── ├── scipt.js
 │   ├── movies.js
 │   └── movie-details.js
 │
