@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+
+                <!-- Mobile Navbar Button -->
+                <button class="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#navbarMenu"  
+                        aria-controls="navbarMenu" 
+                        aria-expanded="false" 
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Logo -->
+                <a class="navbar-brand">
+                    <img src="images/CineVerse2.png" alt="CineVerse" class="cineverse-logo">
+                </a>
+
+                <!-- Nav Links -->
+
+                <div class="collapse navbar-collapse" id="navbarMenu">
+
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#all_movies">Movies</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#trending_movies">Trending</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#genres">Genres</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#top_reted_movies">Top Rated</a>
+                        </li>
+
+                    </ul>
+
+                    <!-- Search Button -->
+                    <form class="d-flex" id="searchForm" role="search">
+
+                        <input
+                            id="searchInput"
+                            class="form-control"
+                            type="search"
+                            placeholder="Search Movies..."
+                            aria-label="Search Movies">
+
+                        <button class="search-btn" type="submit">
+                            Search
+                        </button>
+
+                    </form>
+                    
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-slider" id="home">
+
+        <!-- Hero Sliders -->
+        <div class="hero-slide active">
+            <img src="images/3-idiots.jpg" alt="Movie Poster" class="hero-bg">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <span class="hero-badge">NOW PLAYING</span>
+                <h1>Epic Movies<br>
+                    Endless <span>Entertainment</span>
+                </h1>
+                <p> Discover the latest blockbusters, timeless classics
+                    and hidden gems. Your next favorite movie is here!
+                </p>
+            </div>
+
+        </div>
+
+        <div class="hero-slide">
+            <img src="images/Inception.jpg" alt="Inception Poster">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-slide">
+            <img src="images/chal-jivi-laiye.jpg" alt="Inception Poster">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-slide">
+            <img src="images/oppenheimer.jpg" alt="Inception Poster">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-slide">
+            <img src="images/chello-divas.jpg" alt="Inception Poster">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Prev & Next Arrows -->
+        <button class="slider-arrow prev">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow next">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+
+    
+    <main id="mainContent">
+    <!-- Genres Section -->
+        <section class="genres-section mt-2" id="genres">
+            
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2 class="generes-heading">Explore Genres</h2>
+                    </div>
+
+                </div>
+
+                <!-- Genres -->
+                <div class="row g-3 mt-3">
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Action">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Action</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Comedy">
+                            <i class="fa-solid fa-face-laugh"></i>
+                            <span>Comedy</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Drama">
+                            <i class="fa-solid fa-masks-theater"></i>
+                            <span>Drama</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Horror">
+                            <i class="fa-solid fa-ghost"></i>
+                            <span>Horror</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Romance">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>Romance</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Sci-Fi">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Sci-Fi</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Thriller">
+                            <i class="fa-solid fa-user-secret"></i>
+                            <span>Thriller</span>
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md">
+                        <button class="genre-card w-100" data-genre="Animation">
+                            <i class="fa-solid fa-film"></i>
+                            <span>Animation</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Search Results Section -->
+        <section id="searchResultsSection" class="movies-section search-results-section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h2 id="searchResultTitle">Search Results</h2>
+
+                    <button id="clearSearch" class="clear-search-btn">
+                        Clear Search
+                    </button>
+
+                </div>
+
+                <div class="movies-slider">
+
+                    <div class="movies-row" id="searchResults"></div>
+
+                </div>
+
+                <div id="noSearchResults" class="no-search-results">
+
+                    <div class="no-result-content">
+
+                        <div class="search-error-icon">
+                            ?
+                        </div>
+
+                        <h3>
+                            Couldn't find "<span id="searchedMovie"></span>"
+                        </h3>
+
+                        <p>
+                            Try searching for something else or try with a different spelling
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- All Movies Section -->
+        <section id="all_movies" class="movies-section">
+
+            <div class="container">
+
+                <!-- Section Heading -->
+                <div class="section-header">
+                    <h2>All Movies</h2>
+                </div>
+
+                <!-- Movies Slider -->
+                <div class="movies-slider">
+
+                    <div class="movies-row" id="allMovies">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Trending Movies Section -->
+        <section class="movies-section" id="trending_movies">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Trending Movies</h2>
+                </div>
+
+                <!-- Slider -->
+                <div class="movies-slider">
+
+                    <div class="movies-row" id="trendingMovies">
+                        
+                    </div>
+
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Top Rated Movies Section -->
+        <section class="movies-section" id="top_reted_movies">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Top Movies</h2>
+                </div>
+
+                <!-- Slider -->
+                <div class="movies-slider">
+
+                    <div class="movies-row" id="topRatedMovies">
+                        
+                    </div>
+
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Genre Select -->
+     <section id="genreResultsSection" class="movies-section genre-results-section">
+
+        <div class="container">
+
+            <div class="section-header">
+                <h2 id="genreResultTitle"></h2>
+            </div>
+
+            <div class="movies-slider">
+                <div class="movies-row" id="genreResults"></div>
+            </div>
+
+        </div>
+
+    </section>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+
+                    <a href="#home" class="footer-logo">
+                        <i class="fa-solid fa-circle-play"></i>
+                        Cine<span>Verse</span>
+                    </a>
+
+                    <p class="footer-description">
+                        CineVerse is your ultimate destination to
+                        explore, discover and enjoy the best movies
+                        from around the world.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#all_movies">Movies</a>
+                    </li>
+                    <li>
+                        <a href="#trending_movies">Trending Movies</a>
+                    </li>
+                    <li>
+                        <a href="#top_reted_movies">Top Rated</a>
+                    </li>
+                    <li>
+                        <a href="#genres">Genres</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Genres</h3>
+                <ul>
+                    <li>
+                        <a href="#">Action</a>
+                    </li>
+                    <li>
+                        <a href="#">Comedy</a>
+                    </li>
+                    <li>
+                        <a href="#">Horror</a>
+                    </li>
+                    <li>
+                        <a href="#">Sci-Fi</a>
+                    </li>
+                    <li>
+                        <a href="#">Drama</a>
+                    </li>
+                    <li>
+                        <a href="#">Romance</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="footer-column footer-picks">
+                <h3>CineVerse Picks</h3>
+                <p>
+                    Discover something amazing to watch tonight.
+                </p>
+
+                <div class="footer-feature">
+                    <i class="fa-solid fa-fire"></i>
+                    <div>
+                        <strong>Trending Now</strong>
+                        <span>See what's popular</span>
+                    </div>
+                </div>
+
+                <div class="footer-feature">
+                    <i class="fa-solid fa-star"></i>
+                    <div>
+                        <strong>Top Rated</strong>
+                        <span>Movies worth watching</span>
+                    </div>
+                </div>
+
+                <a href="#all_movies" class="footer-explore-btn">
+                    Explore Movies
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 CineVerse. All rights reserved.
+                </p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#">Terms of Use</a>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script src="js/movies.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
