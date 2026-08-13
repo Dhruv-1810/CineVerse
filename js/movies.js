@@ -144,7 +144,6 @@ const movieData = {
             id: 12,
             title: "The Dark Knight",
             year: 2008,
-            runtime: "2h 32m",
             rating: 9.0,
             ratingsCount: "2.5M+ ratings",
             image: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
@@ -624,19 +623,27 @@ document.addEventListener(
 );
 
 // Filter Movies according to Genre
+
 const genreCards = document.querySelectorAll(".genre-card");
 
 genreCards.forEach(card => {
 
     card.addEventListener("click", function () {
 
+        // Get selected genre
         const selectedGenre = this.dataset.genre;
 
-        const filteredMovies = allMovies.filter(movie =>
-            movie.genre.includes(selectedGenre)
-        );
+        // Find only movies belonging to selected genre
+        const filteredMovies = allMovies.filter(movie => {
 
-        // Sections
+            if (!movie.genre) {
+                return false;
+            }
+
+            return movie.genre.includes(selectedGenre);
+        });
+
+        // Get genre result section
         const genreSection =
             document.getElementById("genreResultsSection");
 
@@ -646,32 +653,64 @@ genreCards.forEach(card => {
         const genreTitle =
             document.getElementById("genreResultTitle");
 
+
+        // ========================================
+        // HIDE OTHER MOVIE SECTIONS
+        // ========================================
+
         const trendingSection =
             document.getElementById("trendingMovies")
-                .closest(".movies-section");
+                ?.closest(".movies-section");
 
         const topRatedSection =
             document.getElementById("topRatedMovies")
-                .closest(".movies-section");
+                ?.closest(".movies-section");
 
-        // Show genre results
+        const allMoviesSection =
+            document.getElementById("all_movies")
+                ?.closest(".movies-section");
+
+
+        if (trendingSection) {
+            trendingSection.style.display = "none";
+        }
+
+        if (topRatedSection) {
+            topRatedSection.style.display = "none";
+        }
+
+        if (allMoviesSection) {
+            allMoviesSection.style.display = "none";
+        }
+
+
+        // ========================================
+        // SHOW ONLY SELECTED GENRE MOVIES
+        // ========================================
+
         genreSection.style.display = "block";
 
-        // Set heading
-        genreTitle.textContent = `${selectedGenre} Movies`;
+        genreTitle.textContent =
+            `${selectedGenre} Movies`;
 
-        // Show filtered movies
         genreResults.innerHTML = filteredMovies
             .map(movie => createMovieCard(movie))
             .join("");
 
-        // Hide Trending and Top Movies
-        trendingSection.style.display = "none";
-        topRatedSection.style.display = "none";
+
+        // ========================================
+        // SCROLL TO GENRE RESULTS
+        // ========================================
+
+        genreSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
     });
 
 });
+
 
 // Movie Details page
 
