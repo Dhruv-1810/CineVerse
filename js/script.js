@@ -103,3 +103,68 @@ const observer = new IntersectionObserver(
 sections.forEach(section => {
     observer.observe(section);
 });
+
+
+// Genre Filter
+
+const genreCards = document.querySelectorAll(".genre-card");
+
+genreCards.forEach(card => {
+
+    card.addEventListener("click", function () {
+
+        // Get selected genre
+        const selectedGenre = this.dataset.genre;
+
+        // Find movies matching selected genre
+        const filteredMovies = allMovies.filter(movie =>
+            movie.genre && movie.genre.includes(selectedGenre)
+        );
+
+        // Genre result section
+        const genreSection =
+            document.getElementById("genreResultsSection");
+
+        const genreResults =
+            document.getElementById("genreResults");
+
+        const genreTitle =
+            document.getElementById("genreResultTitle");
+
+        // Trending section
+        const trendingSection =
+            document.getElementById("trendingMovies")
+                .closest(".movies-section");
+
+        // Top Rated section
+        const topRatedSection =
+            document.getElementById("topRatedMovies")
+                .closest(".movies-section");
+
+        // Show genre section
+        genreSection.style.display = "block";
+
+        // Change heading
+        genreTitle.textContent =
+            `${selectedGenre} Movies`;
+
+        // Display filtered movies
+        genreResults.innerHTML = filteredMovies
+            .map(movie => createMovieCard(movie))
+            .join("");
+
+        // Hide Trending
+        trendingSection.style.display = "none";
+
+        // Hide Top Rated
+        topRatedSection.style.display = "none";
+
+        // Scroll to genre results
+        genreSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+});
